@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student_register>
+	<student> 
+		<name></name>
+		<roll_no></roll_no>
+		<age></age>
+		<gender></gender>
+	</student>
+	<student> 
+		<name></name>
+		<roll_no></roll_no>
+		<age></age>
+		<gender></gender>
+	</student>
+	<student> 
+		<name></name>
+		<roll_no></roll_no>
+		<age></age>
+		<gender></gender>
+	</student>
+</student_register>
