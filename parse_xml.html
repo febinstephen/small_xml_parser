@@ -2,28 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>jQuery.parseXML demo</title>
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="jquery-1.12.0.min.js"></script>
 </head>
 <body>
  
-<p id="name"></p>
+<!--<p id="name"></p>
 <p id="rollno"></p>
 <p id="age"></p>
-<p id="gender"></p>
+<p id="gender"></p> -->
  
 <script>
-var xml = "<rss version='2.0'><student> <name>febin</name><rollno>1</rollno><age>24</age><gender>male</gender> <name>abin</name><rollno>2</rollno><age>27</age><gender>male</gender></student></rss>",
-  xmlDoc = $.parseXML( xml ),
-  $xml = $( xmlDoc ),
-  //$title = $xml.find( "title" );
-	$name = $xml.find( "name" );
-	$rollno = $xml.find( "rollno" );
-	$age = $xml.find( "age" );
-	$gender = $xml.find( "gender" );
-	console.log(xmlDoc);
+var xml = "<student><name>febin</name><rollno>1</rollno><age>24</age><gender>male</gender></student> <student><name>abin</name><rollno>2</rollno><age>27</age><gender>male</gender></student>";
+	var namelist = xml.split(" ");
+	console.log(namelist);
+	//document.write(namelist);
+	for (var i = 0; i < namelist.length; i++) {
+			var xmlDoc = $.parseXML( namelist[i] );
+   			$xml = $( xmlDoc );
+  			if ($xml.find( "name" )) {
+				$name = $xml.find( "name" );
+				document.write("<br /> Name:" + $name.text());
+			}
+			if ($xml.find( "rollno" )) {
+				$rollno = $xml.find( "rollno" );
+				document.write("<br /> Roll_no:" + $rollno.text());
+			}
+			if ($xml.find( "age" )) { 
+				$age = $xml.find( "age" );
+				document.write("<br /> Age:" + $age.text());
+			}
+			if ($xml.find( "gender" )) {
+				$gender = $xml.find( "gender" );
+				document.write("<br /> Gender:" + $gender.text());
+			}
+			document.write("<br />");
+  	} 
 
- 
+	/* var xmlDoc = $.parseXML( xml ),
+   	$xml = $( xmlDoc ),
+  	//$title = $xml.find( "title" );
+	$name = $xml.find( "name" ),
+	$rollno = $xml.find( "rollno" ),
+	$age = $xml.find( "age" ),
+	$gender = $xml.find( "gender" );
+	//document.write(xmlDoc);
+	console.log($xml);
 // Append "RSS Title" to #someElement
 //$( "#someElement" ).append( $title.text() );
 
@@ -33,13 +56,8 @@ $( "#rollno" ).append( $rollno.text() );
 
 $( "#age" ).append( $age.text() );
 
-$( "#gender" ).append( $gender.text() );
+$( "#gender" ).append( $gender.text() );  */
  
-// Change the title to "XML Title"
-//$title.text( "XML Title" );
- 
-// Append "XML Title" to #anotherElement
-//$( "#anotherElement" ).append( $title.text() );
 </script>
  
 </body>
